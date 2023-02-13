@@ -54,11 +54,14 @@ const UserList = () => {
                     <span>Phone</span>
                     <span>website</span>
                 </StyledListItemHead>
+
                 {error && <Alert type="error">{error}</Alert>}
+
                 {!users?.length && <Alert type="error">The list is empty</Alert>}
                 {loading ? <Preloader/> :
                     users?.map(user =>
                         <UserItem key={user.name} user={user}/>)}
+
             </StyledList>
         </StyledContainer>
     )

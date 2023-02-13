@@ -12,6 +12,63 @@ interface ModalProps {
     title: string
 }
 
+const StyledModal = styled.div`
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.25);
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    `
+
+const StyledModalBody = styled.div`
+        max-width: 500px;
+        width: 100%;
+        background: #fff;
+        border-radius: 20px;
+
+        @media (max-width: 568px) {
+            margin: 0 15px;
+        }
+    `
+
+const StyledModalHeader = styled.header`
+        padding: 15px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #9457eb;
+    `
+
+const StyledHeading = styled.h2`
+        font-size: 20px;
+        color: 9457EB;   
+    `
+
+const StyledWrapperSvg = styled.div`
+         width: 25px;
+         height: 25px;
+         cursor: pointer;
+    `
+
+const StyledMain = styled.main`
+        padding: 0 15px 0;
+    `
+
+const StyledFooter = styled.footer`
+         margin-top: 15px;
+         padding: 15px;
+         display: flex;
+         align-items: center;
+         gap: 10px;
+         border-top: 1px solid #9457eb;
+    `
+
 const Modal: FC<ModalProps> = ({children, open, onClose, title}) => {
     const element = useMemo(() => document.createElement("div"), [])
 
@@ -26,63 +83,6 @@ const Modal: FC<ModalProps> = ({children, open, onClose, title}) => {
             }
         }
     }, [open])
-
-    const StyledModal = styled.div`
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden;
-        background: rgba(0, 0, 0, 0.25);
-        display: flex;
-        justify-content: center;
-        align-items: center; 
-    `
-
-    const StyledModalBody = styled.div`
-        max-width: 500px;
-        width: 100%;
-        background: #fff;
-        border-radius: 20px;
-
-        @media (max-width: 568px) {
-            margin: 0 15px;
-        }
-    `
-
-    const StyledModalHeader = styled.header`
-        padding: 15px;
-        margin-bottom: 15px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-bottom: 1px solid #9457eb;
-    `
-
-    const StyledHeading = styled.h2`
-        font-size: 20px;
-        color: 9457EB;   
-    `
-
-    const StyledWrapperSvg = styled.div`
-         width: 25px;
-         height: 25px;
-         cursor: pointer;
-    `
-
-    const StyledMain = styled.main`
-        padding: 0 15px 0;
-    `
-
-    const StyledFooter = styled.footer`
-         margin-top: 15px;
-         padding: 15px;
-         display: flex;
-         align-items: center;
-         gap: 10px;
-         border-top: 1px solid #9457eb;
-    `
 
     if (open) {
         return createPortal(

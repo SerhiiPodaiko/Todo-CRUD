@@ -6,9 +6,7 @@ interface AlertProps {
     type: string
 }
 
-const Alert: FC<AlertProps> = ({children, type}) => {
-
-    const StyledAlert = styled.div`
+const StyledAlert = styled.div`
         padding: 20px;
         border-radius: 10px;
         background: #EB6A5E;
@@ -26,6 +24,7 @@ const Alert: FC<AlertProps> = ({children, type}) => {
         }
     `
 
+const Alert: FC<AlertProps> = ({children, type}) => {
     return (
         <StyledAlert>
             {children}

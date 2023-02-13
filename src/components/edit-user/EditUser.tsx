@@ -1,9 +1,9 @@
-import {ChangeEvent, FC, FormEvent, useRef, useState} from "react"
+import {ChangeEvent, FC, FormEvent, useState} from "react"
 import styled from "styled-components"
 import {useAppDispatch, useAppSelector} from "../../hooks/useRedux"
 import Alert from "../../ui/alert/Alert"
 import Btn from "../../ui/button/Button"
-import {fetchAddUser, fetchEditUser} from "../../store/slices/todoSlice"
+import {fetchEditUser} from "../../store/slices/todoSlice"
 
 interface EditUserProps {
     user: any
@@ -121,7 +121,8 @@ const EditUser: FC<EditUserProps> = ({user}) => {
                 onChange={onChangeInput}
                 placeholder="Website"/>
 
-            {validateError && <Alert type="error">Invalid: Try again!</Alert>}
+            {validateError &&
+                <Alert type="error">Invalid: Try again!</Alert>}
 
             <StyledWrapperBtn onClick={(e) => e.stopPropagation()}>
                 <Btn color={true} onClick={updateUser}>
